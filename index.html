@@ -40,9 +40,9 @@
                               <div class="button" value="3" id="three" onclick="liveScreen(3)">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button" value="<" id="less than" onclick="liveScreen(<)"><</div>
+                                <div class="button" value=" <" id="backSpace" onclick="backSpace( )"><</div>
                                 <div class="button" value="0" id="zero"onclick="liveScreen(0)">0</div>
-                                <div class="button"value ="c"id="clear"onclick="liveScreen(C)">C</div>
+                                <div class="button"value ="C"id="clear"onclick="clearScreen( )">C</div>
                             </div>
                             <div>
                                 <button type="submit" class="submit-btn">Submit</button>
@@ -65,10 +65,32 @@
         document.getElementById("fourDigit").value=fourDigitsRandom;
         });
 
-
+        // Displays the entered value on screen.
         function liveScreen(value){
             document.getElementById("result").value+=value;
-        }
+        };
+
+       // Clears the screen on click of C button.
+        function clearScreen(){
+            document.getElementById("result").value=" ";
+        };
+        //clears last digit on click of < button.
+        function backSpace(){
+            var displayNumber = document.getElementById("result");
+            var displayValue = displayNumber.value;
+            document.getElementById('result').value=displayValue.slice(0, -1);
+        };
+        
+         
+
+        
+        
+
+
+
+        
+
+
 
         
     </script>
