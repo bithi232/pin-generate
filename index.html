@@ -14,14 +14,14 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input id ="fourDigit" class="form-control" type="text">
+                    <input id ="fourDigit"value="" class="form-control" type="text">
                     <button id="Pin"class="generate-btn">Generate Pin</button>
                 </div>
             </div>
             
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input id="result" class="form-control" type="text">
+                    <input id="result"value="" class="form-control" type="text">
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row">
@@ -45,7 +45,9 @@
                                 <div class="button"value ="C"id="clear"onclick="clearScreen( )">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
+                                <button id="submit"type="submit" class="submit-btn">Submit</button>
+                                
+                                
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>
@@ -53,8 +55,8 @@
             </div>
         </div>
         <div class="notify-section">
-            <p class="notify">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+            <p id="negative" class="notify">❌Pin Didn't Match, Please try again</p>
+            <p id="positive" class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
 
@@ -80,14 +82,23 @@
             var displayValue = displayNumber.value;
             document.getElementById('result').value=displayValue.slice(0, -1);
         };
+        //submit button.
+        var submitBtn = document.getElementById("submit").addEventListener('click',function(){
+            if(fourDigit.value==result.value){
+                var showResult = document.getElementById('positive');
+                
+                showResult.style.display = 'block';
+            }
+            else{
+                var showResult2 = document.getElementById('negative');
+                showResult.style.display = 'block';
+            }
+        });
         
-         
-
-        
-        
+    
 
 
-
+     
         
 
 
